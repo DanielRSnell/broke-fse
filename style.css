@@ -1,0 +1,19 @@
+/*
+Theme Name: Broke FSE
+Theme URI: http://broke.dev/
+Author: Broke.dev
+Author URI: http://broke.dev/
+Description: A barebones and unintrusive Full Site Editing (FSE) theme for building custom sites. Designed to be a minimal foundation, Broke FSE provides only the essentials, allowing for complete creative freedom.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: broke-fse
+
+Tags: full-site-editing, custom-colors, custom-logo, custom-menu, editor-style, featured-images, block-patterns
+Requires at least: 5.8
+Tested up to: 5.9
+Requires PHP: 7.0
+*/
+
+/* Reset/Normalize Styles */
+/* It's recommended to use a reset or normalize stylesheet to ensure consistency across browsers. You can link to one via your functions.php or directly include here. */
