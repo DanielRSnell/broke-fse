@@ -1,0 +1,146 @@
+/* Umbral-specific component styles */
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Work showcase masonry grid */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+  break-inside: avoid;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+/* Image grayscale filter for work showcase */
+.work-image {
+  filter: grayscale(100%) saturate(0.7) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+.work-image:hover {
+  filter: grayscale(0%) saturate(1) contrast(1);
+}
+
+/* Mobile menu panel animation */
+.menu-panel {
+  transition: all 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.menu-panel.open {
+  max-height: 500px;
+}
+
+/* Logo triangle animation */
+.logo-triangle {
+  transition: transform 0.3s ease;
+}
+
+.logo-triangle:hover {
+  transform: rotate(180deg);
+}
+
+/* Metrics card styles */
+.metric-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #22c55e 0%, #eab308 50%, #3b82f6 100%);
+}
+
+/* Footer dark section with rounded corners */
+.footer-dark {
+  background-color: #171717;
+  color: white;
+  border-radius: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer-dark {
+    border-radius: 1.5rem;
+  }
+}
+
+/* Custom link hover states */
+.link-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* Status badge styles */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-badge.available {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.busy {
+  background-color: #fef3c7;
+  color: #854d0e;
+}
+
+/* Code block styling */
+.code-block {
+  font-family: 'Geist Mono', 'Courier New', monospace;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+}

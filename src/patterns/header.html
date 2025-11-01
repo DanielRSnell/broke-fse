@@ -1,0 +1,77 @@
+<header class="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
+  <nav class="flex items-center justify-between border-b border-neutral-200 pb-4">
+    <!-- Brand -->
+    <a href="{{ site.url }}" class="inline-flex items-center gap-2">
+      <svg class="md:w-14 md:h-14 w-[36px] h-[36px]" viewBox="0 0 48 48" aria-hidden="true" stroke-width="2" style="width: 36px; height: 36px;">
+        <path d="M24 8 L40 36 H8 Z" fill="currentColor"></path>
+      </svg>
+      <span class="sm:text-base text-sm font-medium tracking-tight">
+        {{ site.name }}
+      </span>
+    </a>
+
+    <!-- Nav links -->
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#work" class="text-sm text-neutral-600 hover:text-neutral-900 tracking-tight">
+        Work
+      </a>
+      <a href="#stack" class="text-sm text-neutral-600 hover:text-neutral-900 tracking-tight">
+        Stack
+      </a>
+      <a href="#evals" class="text-sm text-neutral-600 hover:text-neutral-900 tracking-tight">
+        Evals
+      </a>
+      <a href="#services" class="text-sm text-neutral-600 hover:text-neutral-900 tracking-tight">
+        Services
+      </a>
+      <a href="#about" class="text-sm text-neutral-600 hover:text-neutral-900 tracking-tight">
+        About
+      </a>
+      <a href="#contact" class="text-sm text-neutral-600 hover:text-neutral-900 tracking-tight">
+        Contact
+      </a>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-2">
+      <a href="#" class="hidden sm:inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium tracking-tight text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-900 shadow-sm">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        <span>Resume</span>
+      </a>
+      <button type="button" data-menu-toggle class="md:hidden inline-flex items-center justify-center rounded-full p-2 border border-neutral-200 bg-white hover:bg-neutral-50" aria-expanded="false">
+        <i data-lucide="menu" class="w-4 h-4"></i>
+        <span class="sr-only">Open menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div data-menu-panel class="md:hidden hidden menu-panel mt-3 rounded-2xl border border-neutral-200 bg-white shadow-sm overflow-hidden">
+    <div class="px-4 py-3 grid gap-2">
+      <a href="#work" class="text-sm text-neutral-900 tracking-tight py-1.5">
+        Work
+      </a>
+      <a href="#stack" class="text-sm text-neutral-900 tracking-tight py-1.5">
+        Stack
+      </a>
+      <a href="#evals" class="text-sm text-neutral-900 tracking-tight py-1.5">
+        Evals
+      </a>
+      <a href="#services" class="text-sm text-neutral-900 tracking-tight py-1.5">
+        Services
+      </a>
+      <a href="#about" class="text-sm text-neutral-900 tracking-tight py-1.5">
+        About
+      </a>
+      <a href="#contact" class="text-sm text-neutral-900 tracking-tight py-1.5">
+        Contact
+      </a>
+    </div>
+    <div class="border-t border-neutral-200 px-4 py-3">
+      <a href="#" class="inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium tracking-tight text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-900">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        <span>Download Resume</span>
+      </a>
+    </div>
+  </div>
+</header>

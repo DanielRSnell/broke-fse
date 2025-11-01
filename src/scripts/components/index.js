@@ -11,6 +11,10 @@
  */
 
 import { initFormHandler } from './form-handler';
+import { initMobileMenu } from './mobile-menu';
+import { initCharts } from './chart-setup';
+import { initLucideIcons } from './lucide-icons';
+import { initLetterReveal, initScrollAnimations, initCardHoverEffects } from './animations';
 
 /**
  * Initialize all components
@@ -20,9 +24,11 @@ export function initComponents() {
   // Initialize form handler (example pattern)
   initFormHandler();
 
-  // Add more component initializations here
-  // Example:
-  // initMobileMenu();
-  // initCarousels();
-  // initModals();
+  // Initialize Umbral-specific components
+  initMobileMenu();
+  initCharts();
+  initLucideIcons();
+  initLetterReveal();
+  initScrollAnimations();
+  initCardHoverEffects();
 }
