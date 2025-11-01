@@ -130,20 +130,29 @@ If you're using this HTML 3+ times:
 
 ### Step 2: Extract to Component
 
-Create `components/profile-card.css`:
+Create `components/profile-card.css` using CSS custom properties:
 
 ```css
 @layer components {
   .profile-card {
-    @apply flex items-center gap-4 p-6 bg-white rounded-lg shadow;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-6);
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
   }
 
   .profile-card__avatar {
-    @apply w-16 h-16 rounded-full;
+    width: var(--spacing-16);
+    height: var(--spacing-16);
+    border-radius: var(--radius-full);
   }
 
   .profile-card__title {
-    @apply text-lg font-bold;
+    font-size: var(--text-lg);
+    font-weight: 700;
   }
 }
 ```
@@ -201,24 +210,29 @@ Create `components/profile-card.css`:
 
 ## Best Practices
 
-### 1. Use @apply for Utilities
+### 1. Use CSS Custom Properties (Not @apply)
 
-**Good:**
+**Tailwind v4 Recommended Approach:**
 ```css
 .btn {
-  @apply px-4 py-2 rounded-lg bg-primary text-white;
-}
-```
-
-**Also good:**
-```css
-.btn {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-lg);
   background: var(--color-primary);
-  color: white;
+  color: var(--color-white);
 }
 ```
+
+**Why not @apply?**
+Tailwind CSS v4 recommends using CSS custom properties for better performance, maintainability, and explicit theming. The `@apply` directive is no longer the preferred pattern.
+
+**Available theme variables:**
+- **Colors:** `var(--color-primary)`, `var(--color-neutral-500)`, `var(--color-white)`
+- **Spacing:** `var(--spacing-2)`, `var(--spacing-4)`, `var(--spacing-6)`
+- **Radius:** `var(--radius-sm)`, `var(--radius-lg)`, `var(--radius-full)`
+- **Shadows:** `var(--shadow)`, `var(--shadow-lg)`, `var(--shadow-xl)`
+- **Typography:** `var(--text-sm)`, `var(--text-base)`, `var(--text-lg)`
+
+See [Tailwind CSS: Adding Custom Styles](https://tailwindcss.com/docs/adding-custom-styles) for details.
 
 ### 2. Reference Theme Variables
 
@@ -290,18 +304,23 @@ components/
 ```css
 @layer components {
   .btn {
-    @apply inline-flex items-center gap-2;
-    @apply px-4 py-2 rounded-full;
-    @apply font-medium text-sm;
-    @apply transition-all duration-200;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    transition: all 200ms;
   }
 
   .btn-primary {
-    @apply bg-primary text-white;
+    background: var(--color-primary);
+    color: var(--color-white);
   }
 
   .btn-primary:hover {
-    @apply bg-primary-600;
+    background: var(--color-primary-600);
   }
 }
 ```
@@ -311,19 +330,69 @@ components/
 ```css
 @layer components {
   .card {
-    @apply p-6 rounded-lg;
-    @apply bg-white shadow;
+    padding: var(--spacing-6);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    box-shadow: var(--shadow);
   }
 
   .card-hover {
-    @apply transition-shadow duration-200;
+    transition: box-shadow 200ms;
   }
 
   .card-hover:hover {
-    @apply shadow-lg;
+    box-shadow: var(--shadow-lg);
   }
 }
 ```
+
+---
+
+## Customizing Theme Variables
+
+Components should reference theme variables defined in the `@theme` directive. This ensures consistency across your design system.
+
+### Using @theme for Custom Design Tokens
+
+Define custom properties in your theme files:
+
+```css
+/* theme/colors.css */
+@theme {
+  /* Custom color creates bg-brand, text-brand utilities */
+  --color-brand: oklch(0.72 0.11 221.19);
+
+  /* Custom spacing creates p-huge, m-huge utilities */
+  --spacing-huge: 10rem;
+
+  /* Custom radius creates rounded-pill utility */
+  --radius-pill: 9999px;
+}
+```
+
+### Accessing Theme Variables in Components
+
+```css
+@layer components {
+  .custom-button {
+    padding: var(--spacing-4);
+    background: var(--color-brand);
+    border-radius: var(--radius-pill);
+  }
+}
+```
+
+### Variable Naming Conventions
+
+| Namespace | Purpose | Example |
+|-----------|---------|---------|
+| `--color-*` | Colors | `var(--color-primary)` |
+| `--spacing-*` | Spacing/sizing | `var(--spacing-4)` |
+| `--text-*` | Font sizes | `var(--text-lg)` |
+| `--radius-*` | Border radius | `var(--radius-lg)` |
+| `--shadow-*` | Box shadows | `var(--shadow-xl)` |
+
+See [Tailwind CSS: Theme](https://tailwindcss.com/docs/theme) for complete documentation.
 
 ---
 

@@ -644,12 +644,35 @@ Source files in `src/scss/`. See [src/scss/README.md](src/scss/README.md).
 
 ## Documentation
 
-- **[CLAUDE.md](CLAUDE.md)** - AI assistant instructions
-- **[src/docs/block-markup-guide.md](src/docs/block-markup-guide.md)** - Universal Block syntax
+### Core Documentation
+- **[CLAUDE.md](CLAUDE.md)** - AI assistant instructions and theme architecture
+- **[README.md](README.md)** - This file (getting started, CLI reference)
+
+### Source Directory Guides
+- **[src/content/README.md](src/content/README.md)** - Content collections (markdown & HTML sync)
+- **[src/context/README.md](src/context/README.md)** - Timber context filters (MVC data layer)
+- **[src/extensions/README.md](src/extensions/README.md)** - Theme extensions (custom post types, etc.)
+- **[src/pages/README.md](src/pages/README.md)** - HTML page templates
+- **[src/parts/README.md](src/parts/README.md)** - FSE template parts
+- **[src/patterns/README.md](src/patterns/README.md)** - Pattern section sources
+- **[src/scripts/README.md](src/scripts/README.md)** - JavaScript source files
+- **[src/templates/README.md](src/templates/README.md)** - FSE template sources
+
+### Styles Documentation
+- **[src/styles/README.md](src/styles/README.md)** - CSS architecture overview
+- **[src/styles/core/README.md](src/styles/core/README.md)** - Theme layer (colors, core styles)
+- **[src/styles/components/README.md](src/styles/components/README.md)** - Component layer
+- **[src/styles/themes/README.md](src/styles/themes/README.md)** - Theme variants (dark mode)
+- **[src/styles/vendor/README.md](src/styles/vendor/README.md)** - Third-party overrides
+- **[src/scss/README.md](src/scss/README.md)** - Optional SCSS usage
+
+### Other Directories
 - **[acf-json/README.md](acf-json/README.md)** - ACF custom fields guide
 - **[public/README.md](public/README.md)** - Static assets guide
-- **[src/styles/README.md](src/styles/README.md)** - CSS architecture
-- **[src/scss/README.md](src/scss/README.md)** - SCSS usage
+
+### Block Markup & CLI
+- **[src/docs/block-markup-guide.md](src/docs/block-markup-guide.md)** - Universal Block syntax
+- **[includes/CLI/html2pattern-cli/README.md](includes/CLI/html2pattern-cli/README.md)** - Pattern converter documentation
 
 ---
 
