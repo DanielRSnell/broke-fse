@@ -54,7 +54,7 @@ class PatternPushCommand extends WP_CLI_Command {
     public function __invoke($args, $assoc_args) {
         $theme_dir = get_template_directory();
         $theme_slug = basename($theme_dir);
-        $patterns_dir = $theme_dir . '/patterns';
+        $patterns_dir = $theme_dir . '/src/patterns';
 
         // Check if converting all patterns
         $convert_all = isset($assoc_args['all']);
@@ -116,8 +116,12 @@ class PatternPushCommand extends WP_CLI_Command {
                 $html_content
             );
 
-            // Write PHP file
-            $php_file_path = $patterns_dir . '/' . $filename . '.php';
+            // Write PHP file to patterns/ directory
+            $output_dir = $theme_dir . '/patterns';
+            if (!is_dir($output_dir)) {
+                mkdir($output_dir, 0755, true);
+            }
+            $php_file_path = $output_dir . '/' . $filename . '.php';
             file_put_contents($php_file_path, $php_content);
 
             $converted_count++;
