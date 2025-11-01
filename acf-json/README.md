@@ -163,16 +163,20 @@ Repeaters allow multiple rows of sub-fields:
    - Bio (Textarea)
 4. Save - creates `group_team.json`
 
-**In template:**
-```php
-<?php if (have_rows('team_members')): ?>
-    <div loopsource="post.meta('team_members')" loopvariable="member">
-        <img src="{{ member.photo.url }}" alt="{{ member.name }}">
-        <h3>{{ member.name }}</h3>
-        <p class="title">{{ member.title }}</p>
-        <p>{{ member.bio }}</p>
-    </div>
-<?php endif; ?>
+**In template (Universal Block markup):**
+```html
+<div
+  conditionalvisibility="true"
+  conditionalexpression="post.meta('team_members')|length > 0"
+  loopsource="post.meta('team_members')"
+  loopvariable="member">
+  <div class="team-member">
+    <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+    <h3>{{ member.name }}</h3>
+    <p class="title">{{ member.title }}</p>
+    <p>{{ member.bio }}</p>
+  </div>
+</div>
 ```
 
 ---
@@ -211,11 +215,9 @@ Option pages store site-wide settings (not tied to specific posts).
 
 ### Accessing Option Page Fields
 
-```php
-// In template
-<p>{{ fun.get_field('site_tagline', 'option') }}</p>
+**✅ Recommended Approach - Use Context Filters:**
 
-// Better: Add to Timber context
+```php
 // src/context/theme-settings.php
 add_filter('timber/context', function($context) {
     $context['site_tagline'] = get_field('site_tagline', 'option');
@@ -223,10 +225,22 @@ add_filter('timber/context', function($context) {
     $context['social_links'] = get_field('social_links', 'option');
     return $context;
 });
-
-// Then in template:
-<p>{{ site_tagline }}</p>
 ```
+
+```html
+<!-- In template - Clean and simple! -->
+<p>{{ site_tagline }}</p>
+<a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+```
+
+**⚠️ Emergency Use Only - Magic Helper (NOT recommended):**
+
+```html
+<!-- Only use for quick editor fixes -->
+<p>{{ fun.get_field('site_tagline', 'option') }}</p>
+```
+
+This violates MVC principles. Always prefer context filters for maintainability.
 
 ---
 
@@ -267,14 +281,30 @@ add_action('init', function() {
 
 ### Using Taxonomies in Templates
 
-```php
-// Get terms for current post
+**✅ For current post terms (Universal Block markup):**
+
+```html
+<!-- Get terms for current post -->
 <div loopsource="post.terms('project_type')" loopvariable="term">
     <a href="{{ term.link }}">{{ term.name }}</a>
 </div>
+```
 
-// Get all terms
-{% set project_types = timber.get_terms('project_type') %}
+**✅ For all terms - Use Context Filter:**
+
+```php
+// src/context/taxonomy-data.php
+add_filter('timber/context', function($context) {
+    // Only load on archive or when needed
+    if (is_post_type_archive('portfolio') || is_singular('portfolio')) {
+        $context['project_types'] = Timber::get_terms('project_type');
+    }
+    return $context;
+});
+```
+
+```html
+<!-- In template - Clean and simple! -->
 <div loopsource="project_types" loopvariable="type">
     <a href="{{ type.link }}">{{ type.name }}</a>
 </div>
@@ -395,17 +425,40 @@ Fields:
 
 ### Fields Not Accessible in Templates
 
-**Check:**
-```php
-// Debug field value
-<?php var_dump(get_field('field_name')); ?>
+**✅ Recommended Debugging Approach:**
 
-// For post fields
+**For post custom fields:**
+```html
+<!-- Use Timber Post object method -->
 {{ post.meta('field_name') }}
-
-// For option pages
-{{ fun.get_field('field_name', 'option') }}
 ```
+
+**For option page fields - Use Context Filter:**
+```php
+// src/context/theme-settings.php
+add_filter('timber/context', function($context) {
+    // Debug by adding to context
+    $context['debug_option'] = get_field('field_name', 'option');
+    return $context;
+});
+```
+
+```html
+<!-- Then access in template -->
+{{ debug_option }}
+```
+
+**For PHP debugging:**
+```php
+// In src/context/ file or functions.php
+add_filter('timber/context', function($context) {
+    // Debug the value
+    error_log(print_r(get_field('field_name'), true));
+    return $context;
+});
+```
+
+Check WordPress debug.log for output.
 
 ---
 

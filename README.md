@@ -453,12 +453,15 @@ Edit fonts in `theme.json`:
    touch src/styles/components/my-component.css
    ```
 
-2. Define styles:
+2. Define styles using CSS custom properties:
    ```css
    /* src/styles/components/my-component.css */
    @layer components {
      .my-component {
-       @apply flex items-center gap-4 p-6;
+       display: flex;
+       align-items: center;
+       gap: var(--spacing-4);
+       padding: var(--spacing-6);
      }
    }
    ```
@@ -547,9 +550,41 @@ pnpm install --prod
 
 ## Advanced Features
 
-### Universal Block Markup
+### Universal Block Markup Language
 
-Use Twig attributes directly in HTML:
+This theme uses a custom **Universal Block Markup Language** that combines HTML with Twig templating, eliminating the need for traditional PHP WordPress templates.
+
+**Key Features:**
+- ✅ Write clean HTML with dynamic content
+- ✅ Custom WordPress elements: `<Part>`, `<Pattern>`, `<Content>`
+- ✅ Twig control attributes for loops and conditionals
+- ✅ MVC architecture with context filters
+- ✅ No PHP required in templates
+
+#### Custom WordPress Elements
+
+Include template parts, patterns, and post content using custom HTML elements:
+
+```html
+<!-- Include header/footer -->
+<Part slug="header"></Part>
+
+<main>
+  <!-- Include reusable patterns -->
+  <Pattern slug="hero-section"></Pattern>
+
+  <!-- Display post content -->
+  <Content class="prose"></Content>
+</main>
+
+<Part slug="footer"></Part>
+```
+
+**⚠️ Important:** Always use closing tags (`</Part>`), never self-closing (`<Part />`).
+
+#### Control Attributes
+
+Add dynamic behavior with HTML attributes:
 
 ```html
 <!-- Loop through posts -->
@@ -563,13 +598,60 @@ Use Twig attributes directly in HTML:
   <p>Welcome, {{ user.display_name }}!</p>
 </div>
 
-<!-- Set variables -->
-<div setvariable="recent_posts" setexpression="timber.get_posts({'posts_per_page': 5})">
-  <!-- Use recent_posts -->
+<!-- Transform ACF image IDs to Image objects -->
+<div loopsource="post.meta('gallery')" loopvariable="image_id">
+  <div setvariable="image" setexpression="timber.get_image(image_id)">
+    <img src="{{ image.src('large') }}" alt="{{ image.alt }}">
+  </div>
 </div>
 ```
 
-See [src/docs/block-markup-guide.md](src/docs/block-markup-guide.md) for full documentation.
+#### MVC Pattern with Context Filters (Recommended)
+
+**✅ The proper way to fetch data:**
+
+```php
+// src/context/recent-posts.php
+add_filter('timber/context', function($context) {
+    $context['recent_posts'] = Timber::get_posts([
+        'posts_per_page' => 5
+    ]);
+    return $context;
+});
+```
+
+```html
+<!-- Template - Clean and simple! -->
+<div loopsource="recent_posts" loopvariable="post">
+  <h3>{{ post.title }}</h3>
+</div>
+```
+
+**❌ Don't fetch data in templates:**
+
+```html
+<!-- WRONG - Violates MVC pattern -->
+{% set posts = timber.get_posts({'posts_per_page': 5}) %}
+```
+
+#### Inline Twig Expressions
+
+Use Twig syntax for variables, filters, and logic:
+
+```html
+<h1>{{ post.title }}</h1>
+<time>{{ post.date|date('F j, Y') }}</time>
+
+<!-- Access custom fields -->
+<p>{{ post.meta('subtitle') }}</p>
+
+<!-- Loop through categories -->
+<div loopsource="post.categories" loopvariable="cat">
+  <a href="{{ cat.link }}">{{ cat.name }}</a>
+</div>
+```
+
+**Full Documentation:** [src/docs/block-themes/blocks.md](src/docs/block-themes/blocks.md)
 
 ### Dark Mode
 
