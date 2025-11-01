@@ -12,15 +12,15 @@
 
 ## Features
 
-✨ **Zero JavaScript Dependencies by Default** - Pure CSS animations, optional JavaScript
-🎨 **Tailwind CSS v4** - Utility-first CSS with automatic tree-shaking
-🏗️ **Universal Block** - Custom Gutenberg block with Twig templating
-🌲 **Timber/Twig** - Clean MVC architecture for PHP templates
-🔄 **Bidirectional Content Sync** - Edit content as markdown or in WordPress
-⚙️ **html2pattern CLI** - Convert HTML templates to WordPress patterns
-📦 **ACF JSON Support** - Version control for custom fields
-🎯 **PNPM Recommended** - Fast, efficient package management
-📝 **SCSS Optional** - Use Bootstrap-style SCSS alongside or instead of Tailwind
+- ✨ **Zero JavaScript Dependencies by Default** - Pure CSS animations, optional JavaScript
+- 🎨 **Tailwind CSS v4** - Utility-first CSS with automatic tree-shaking
+- 🏗️ **Universal Block** - Custom Gutenberg block with Twig templating
+- 🌲 **Timber/Twig** - Clean MVC architecture for PHP templates
+- 🔄 **Bidirectional Content Sync** - Edit content as markdown or in WordPress
+- ⚙️ **html2pattern CLI** - Convert HTML templates to WordPress patterns
+- 📦 **ACF JSON Support** - Version control for custom fields
+- 🎯 **PNPM Recommended** - Fast, efficient package management
+- 📝 **SCSS Optional** - Use Bootstrap-style SCSS alongside or instead of Tailwind
 
 ---
 
