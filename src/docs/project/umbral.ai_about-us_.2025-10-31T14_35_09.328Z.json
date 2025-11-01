@@ -1,0 +1,101 @@
+{
+  "data": {
+    "markdown": "[Skip to content](https://umbral.ai/about-us/#main)\n\n- [Home](https://umbral.ai/)\n- [Services](https://umbral.ai/services/)\n- [About Us](https://umbral.ai/about-us/)\n- [Blog](https://umbral.ai/blog/)\n\n[![Umbral Enterprise](https://umbral.ai/wp-content/uploads/2025/02/umbral-light.svg)![Umbral Enterprise](https://umbral.ai/wp-content/uploads/2025/02/umbral-dark.png)](https://umbral.ai/)\n\n- [Home](https://umbral.ai/)\n- [Services](https://umbral.ai/services/)\n- [About Us](https://umbral.ai/about-us/)\n- [Blog](https://umbral.ai/blog/)\n\n[Schedule Today](https://umbral.ai/contact-us)\n\n[![Umbral Enterprise](https://umbral.ai/wp-content/uploads/2025/02/umbral-light.svg)![Umbral Enterprise](https://umbral.ai/wp-content/uploads/2025/02/umbral-dark.png)](https://umbral.ai/)\n\nMenu\n\n## Meet Our Team\n\n![](https://umbral.ai/wp-content/uploads/2025/02/DSC00159-1-2-1-scaled.jpg)\n\n![](https://umbral.ai/wp-content/uploads/2025/03/aragonai-ae5d20f2-99ce-461b-bebb-de232ef55caa.jpeg)\n\n## Conner Burton\n\n_Umbral Chieftain_\n\nFocuses the majority of his hours trying to make AI technology practical and digestable for businesses. (To be determined if this was a good use of time…)\n\n## Daniel Snell\n\n_Umbral Architect_\n\nBlending the perfect amount of creativity with techincal prowess, Daniel pushes the tip of the spear to create new AI use cases, technology stacks, and unique user interfaces that clients love interacting with.\n\n![](https://umbral.ai/wp-content/uploads/2025/03/daniel-snell.jpeg)\n\n### Ready to build your AI MVP?\n\nNeed help starting your journey? Our team is ready to answer your questions and explore how we can support your needs\n\n[More information](https://umbral.ai/contact-us)\n\n[Let’s get started](https://umbral.ai/contact-us)\n\n![](https://umbral.ai/wp-content/uploads/2025/02/umbral-light.svg)\n\nPractical AI solutions for business workflows.\n\n##### Platforms\n\n- [Voiceflow](https://voiceflow.com/)\n- [Microsoft CoPilot Studio](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio)\n- [Google Vertex AI](https://cloud.google.com/generative-ai-studio)\n- [IBM WatsonX Assistant](https://www.ibm.com/products/watsonx-assistant)\n\n##### Services\n\n- [Automation](https://umbral.ai/about-us/#contact-us)\n- [Chat Assistants](https://umbral.ai/contact-us)\n- [Voice Agents](https://umbral.ai/about-us/#contact-us)\n- [MVP Development](https://umbral.ai/about-us/#contact-us)\n\n##### Contact Us\n\n[Book A Discovery Call](https://umbral.ai/contact-us)\n\n**Email**: support@umbral.ai\n\nCopyright © 2025 - [**Umbral.ai**](https://umbral.ai/)",
+    "metadata": {
+      "title": "About Us – Umbral Enterprise",
+      "generator": [
+        "WordPress 6.8.3",
+        "WooCommerce 10.3.3"
+      ],
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover",
+      "language": "en-US",
+      "robots": "max-image-preview:large",
+      "scrapeId": "a29de65a-e580-468f-8c18-f8157fdc5b05",
+      "sourceURL": "https://umbral.ai/about-us/",
+      "url": "https://umbral.ai/about-us/",
+      "statusCode": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "proxyUsed": "basic",
+      "cacheState": "miss",
+      "indexId": "75a996bf-f99f-40c3-9cd7-f2f543d7aa79",
+      "creditsUsed": 1
+    }
+  },
+  "scrape_id": "a29de65a-e580-468f-8c18-f8157fdc5b05",
+  "id": "5F-qrtU8EuF6TIJ9yI4Yj",
+  "startedAt": "2025-10-31T14:35:09.328Z",
+  "endedAt": "2025-10-31T14:35:21.475Z",
+  "endpoint": "scrape",
+  "formState": {
+    "extractSetupCompleted": false,
+    "urls": [],
+    "extractSchema": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "company_mission": {
+          "type": "string"
+        },
+        "supports_sso": {
+          "type": "boolean"
+        },
+        "is_open_source": {
+          "type": "boolean"
+        },
+        "is_in_yc": {
+          "type": "boolean"
+        }
+      }
+    },
+    "extractPrompt": "Extract the company details, following the schema.",
+    "enableWebSearch": false,
+    "options": {
+      "onlyMainContent": false,
+      "parsePDF": true,
+      "stealthMode": false,
+      "excludeTags": [],
+      "includeTags": [],
+      "waitFor": "",
+      "timeout": "",
+      "maxAge": "2 days",
+      "ignoreSitemap": false,
+      "crawlEntireDomain": false,
+      "sitemap": "include",
+      "limit": "10",
+      "maxDepth": "",
+      "excludePaths": [],
+      "includePaths": [],
+      "includeSubdomains": false,
+      "search": "",
+      "scrapeContentFromSearchResults": true,
+      "timeBasedSearch": "",
+      "location": "",
+      "prompt": ""
+    },
+    "formats": [
+      "markdown"
+    ],
+    "sources": [
+      "web"
+    ],
+    "categories": [],
+    "jsonSchema": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "company_name": {
+          "type": "string"
+        },
+        "company_description": {
+          "type": "string"
+        }
+      }
+    },
+    "jsonPrompt": "",
+    "agent": {},
+    "url": "umbral.ai/about-us/",
+    "endpoint": "scrape"
+  },
+  "status": "success",
+  "version": "lRrCSdLEhNySMObKcCh2M"
+}

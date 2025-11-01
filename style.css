@@ -1,0 +1,25 @@
+/*
+Theme Name: Umbral
+Theme URI: https://umbral.ai
+Author: Daniel Snell
+Author URI: https://umbral.ai
+Description: Custom WordPress theme for Umbral AI - bringing AI-powered MVPs to life
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: umbral
+Tags: block-theme, full-site-editing, tailwindcss, timber, custom-blocks, boilerplate, starter-theme
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+*/
+
+/**
+ * Note: This file is required by WordPress but styles are loaded from:
+ * - assets/_production/styles.css (Tailwind CSS)
+ * - See src/styles/ for source files
+ * - Build with: npm run build:css
+ */
