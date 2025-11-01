@@ -1,15 +1,66 @@
-# Claude AI Instructions: Blank Theme Development
+# Claude AI Instructions: Broke FSE Theme Development
 
 This document provides instructions for AI assistants working on this WordPress theme.
 
+**⚠️ IMPORTANT:** This is a **boilerplate/starter theme**. Users should run `./setup.sh` to customize it for their project before development. See [.github/TEMPLATE_SETUP.md](.github/TEMPLATE_SETUP.md) for setup instructions.
+
 ## Table of Contents
-1. [Theme Architecture](#theme-architecture)
-2. [HTML to Pattern Workflow](#html-to-pattern-workflow)
-3. [Universal Block Markup](#universal-block-markup)
-4. [Content Collections (Markdown Sync)](#content-collections-markdown-sync)
-5. [Development Commands](#development-commands)
-6. [File Organization](#file-organization)
-7. [Best Practices](#best-practices)
+1. [Theme Setup (New Projects)](#theme-setup-new-projects)
+2. [Theme Architecture](#theme-architecture)
+3. [HTML to Pattern Workflow](#html-to-pattern-workflow)
+4. [Universal Block Markup](#universal-block-markup)
+5. [Content Collections (Markdown Sync)](#content-collections-markdown-sync)
+6. [Development Commands](#development-commands)
+7. [File Organization](#file-organization)
+8. [Best Practices](#best-practices)
+
+---
+
+## Theme Setup (New Projects)
+
+### For Users Starting a New Theme
+
+This is a **boilerplate template**, not a production theme. Before developing:
+
+**Step 1: Run Setup Script**
+```bash
+./setup.sh
+```
+
+This script:
+- Removes boilerplate git history
+- Updates theme name, author, URIs
+- Updates all metadata files (style.css, package.json, composer.json, README.md)
+- Initializes new git repository
+- Optionally adds remote repository
+
+**Step 2: Install Dependencies**
+```bash
+composer install
+pnpm install
+```
+
+**Step 3: Build Assets**
+```bash
+pnpm run build:css
+pnpm run build:js
+```
+
+**Alternative Methods:**
+- **GitHub Template:** Click "Use this template" button, clone, run setup
+- **Degit:** `npx degit DanielRSnell/broke-fse your-theme && cd your-theme && ./setup.sh`
+- **Manual:** Clone, run `./setup.sh`
+
+**Full Guide:** [.github/TEMPLATE_SETUP.md](.github/TEMPLATE_SETUP.md)
+
+### When User Hasn't Run Setup
+
+If working with a user who cloned directly without setup:
+
+1. **Ask:** "Have you run the setup script (`./setup.sh`) yet? This customizes the theme for your project."
+2. **Explain:** The setup script updates theme name, author, and removes boilerplate branding
+3. **Guide:** Point them to `.github/TEMPLATE_SETUP.md` for instructions
+4. **Proceed carefully:** If they skip setup, they'll be pushing to the boilerplate's git remote (not their own)
 
 ---
 

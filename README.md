@@ -42,22 +42,62 @@
 
 ## Quick Start
 
+### For New Projects (Recommended)
+
+Use the automated setup script to create your own theme:
+
 ```bash
-# 1. Clone the theme
+# Option 1: Use GitHub Template (easiest)
+# Click "Use this template" on GitHub, then:
+git clone https://github.com/yourusername/your-theme.git wp-content/themes/your-theme
+cd wp-content/themes/your-theme
+./setup.sh
+
+# Option 2: Use Degit (no git history)
+npx degit DanielRSnell/broke-fse wp-content/themes/your-theme
+cd wp-content/themes/your-theme
+./setup.sh
+
+# Option 3: Manual clone
+git clone https://github.com/DanielRSnell/broke-fse.git wp-content/themes/your-theme
+cd wp-content/themes/your-theme
+./setup.sh
+```
+
+The setup script will:
+- Remove boilerplate git history
+- Update theme name, author, and metadata
+- Initialize new git repository
+- Guide you through customization
+
+Then install and build:
+```bash
+composer install
+pnpm install
+pnpm run build:css
+pnpm run build:js
+```
+
+**Full Template Setup Guide:** [.github/TEMPLATE_SETUP.md](.github/TEMPLATE_SETUP.md)
+
+### For Development/Testing Only
+
+To test the boilerplate without customization:
+
+```bash
 cd wp-content/themes/
 git clone https://github.com/DanielRSnell/broke-fse.git broke
-
-# 2. Install dependencies
 cd broke
+composer install
 pnpm install
-
-# 3. Build assets
 pnpm run build:css
 pnpm run build:js
 
-# 4. Activate theme in WordPress admin
+# Activate in WordPress admin
 # Appearance → Themes → Broke FSE → Activate
 ```
+
+⚠️ **Warning:** This keeps the boilerplate branding and git history. Use the setup script for actual projects.
 
 ---
 
@@ -74,18 +114,56 @@ pnpm run build:js
 
 ## Installation
 
-### 1. Install Theme
+### New Project Setup (Recommended)
 
-**Via Git:**
+**Step 1: Create Your Theme**
+
+Choose one of these methods:
+
+**Method 1: GitHub Template** (Easiest)
+1. Click "Use this template" button on GitHub
+2. Create your new repository
+3. Clone your new repo:
+   ```bash
+   git clone https://github.com/yourusername/your-theme.git wp-content/themes/your-theme
+   cd wp-content/themes/your-theme
+   ```
+
+**Method 2: Degit** (No Git History)
+```bash
+npx degit DanielRSnell/broke-fse wp-content/themes/your-theme
+cd wp-content/themes/your-theme
+```
+
+**Method 3: Manual Clone**
+```bash
+git clone https://github.com/DanielRSnell/broke-fse.git wp-content/themes/your-theme
+cd wp-content/themes/your-theme
+```
+
+**Step 2: Run Setup Script**
+
+```bash
+./setup.sh
+```
+
+Follow the prompts to enter:
+- Theme name
+- Theme slug (text domain)
+- Author information
+- URIs and description
+
+The script automatically updates all theme files with your information.
+
+### Development/Testing Setup
+
+For testing the boilerplate as-is (without customization):
+
 ```bash
 cd wp-content/themes/
 git clone https://github.com/DanielRSnell/broke-fse.git broke
 cd broke
 ```
-
-**Via Download:**
-- Download ZIP from [GitHub](https://github.com/DanielRSnell/broke-fse)
-- Extract to `wp-content/themes/broke/`
 
 ### 2. Install PHP Dependencies
 
