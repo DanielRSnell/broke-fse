@@ -15,6 +15,7 @@ import { initMobileMenu } from './mobile-menu';
 import { initCharts } from './chart-setup';
 import { initLucideIcons } from './lucide-icons';
 import { initLetterReveal, initScrollAnimations, initCardHoverEffects } from './animations';
+import { initUnicornStudio } from './unicorn-studio';
 
 /**
  * Initialize all components
@@ -31,4 +32,5 @@ export function initComponents() {
   initLetterReveal();
   initScrollAnimations();
   initCardHoverEffects();
+  initUnicornStudio();
 }
