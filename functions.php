@@ -106,6 +106,7 @@ if (defined('WP_CLI') && WP_CLI) {
     require_once get_template_directory() . '/includes/cli/blocks-cli/register.php';
     require_once get_template_directory() . '/includes/cli/content-cli/register.php';
     require_once get_template_directory() . '/includes/cli/page-cli/register.php';
+    require_once get_template_directory() . '/includes/cli/pattern-cli/register.php';
     require_once get_template_directory() . '/includes/cli/template-cli/register.php';
 }
 
