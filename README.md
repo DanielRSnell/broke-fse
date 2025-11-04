@@ -738,22 +738,6 @@ Use Twig syntax for variables, filters, and logic:
 
 **Full Documentation:** [src/docs/block-themes/blocks.md](src/docs/block-themes/blocks.md)
 
-### Dark Mode
-
-Dark mode is available via `.theme-night` class:
-
-```html
-<!-- Dark entire page -->
-<body class="theme-night">
-
-<!-- Dark single section -->
-<section class="theme-night">
-  <!-- Content -->
-</section>
-```
-
-Customize in `src/styles/themes/night.css`.
-
 ### SCSS Support
 
 Optional Bootstrap-style SCSS alongside Tailwind:
