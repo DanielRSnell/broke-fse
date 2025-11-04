@@ -222,16 +222,12 @@ pnpm run watch:css & pnpm run watch:js
 ### Editing Workflow
 
 1. **Edit HTML templates** in `src/pages/` or `src/patterns/`
-2. **Convert to WordPress patterns:**
-   ```bash
-   pnpm run parse:all
-   ```
-3. **Rebuild CSS/JS:**
+2. **Rebuild CSS/JS:**
    ```bash
    pnpm run build:css
    pnpm run build:js
    ```
-4. **Refresh WordPress** to see changes
+3. **Refresh WordPress** to see changes
 
 ---
 
@@ -266,15 +262,6 @@ pnpm run watch:css & pnpm run watch:js
 | `pnpm run clean:templates` | Clean template HTML files |
 | `pnpm run clean:css` | Clean CSS files only |
 | `pnpm run clean:js` | Clean JavaScript files only |
-
-### Pattern Conversion
-
-| Command | Description |
-|---------|-------------|
-| `pnpm run parse:all` | Convert all HTML to patterns |
-| `pnpm run parse:pages` | Convert page templates |
-| `pnpm run parse:patterns` | Convert pattern sections |
-| `pnpm run parse:parts` | Convert template parts |
 
 ### Content Sync (WordPress ↔ Files)
 
@@ -579,9 +566,6 @@ pnpm run clean:all
 # Build production assets
 pnpm run build:css
 pnpm run build:js
-
-# Convert templates to patterns
-pnpm run parse:all
 ```
 
 ### Deploy Checklist
@@ -774,12 +758,9 @@ Source files in `src/scss/`. See [src/scss/README.md](src/scss/README.md).
 
 ### Patterns Not Showing
 
-1. Reconvert templates:
-   ```bash
-   pnpm run parse:all
-   ```
-2. Check `patterns/` directory for generated PHP files
-3. Clear WordPress cache
+1. Check `patterns/` directory for generated PHP files
+2. Clear WordPress cache
+3. Verify pattern registration in WordPress admin
 
 ### Styles Not Applying
 
