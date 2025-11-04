@@ -520,3 +520,288 @@ This directory stores ACF field group definitions as JSON for version control. U
 
 **Version:** 1.0.0
 **Last Updated:** 2025-01-21
+
+### EXAMPLE JSON
+```json
+{
+    "key": "post_type_recent_work",
+    "title": "Recent Work",
+    "menu_order": 0,
+    "active": true,
+    "post_type": "recent-work",
+    "description": "",
+    "public": true,
+    "hierarchical": false,
+    "exclude_from_search": false,
+    "publicly_queryable": true,
+    "show_ui": true,
+    "show_in_menu": true,
+    "show_in_admin_bar": true,
+    "show_in_nav_menus": true,
+    "show_in_rest": true,
+    "rest_base": "recent-work",
+    "rest_namespace": "wp\/v2",
+    "rest_controller_class": "WP_REST_Posts_Controller",
+    "menu_position": "5",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-portfolio"
+    },
+    "rename_capabilities": false,
+    "singular_capability_name": "post",
+    "plural_capability_name": "posts",
+    "supports": [
+        "title",
+        "editor",
+        "thumbnail",
+        "excerpt",
+        "page-attributes"
+    ],
+    "taxonomies": [
+        "category"
+    ],
+    "has_archive": true,
+    "has_archive_slug": "recent-work",
+    "rewrite": {
+        "permalink_rewrite": "post_type_key",
+        "with_front": "1",
+        "feeds": "0",
+        "pages": "1"
+    },
+    "query_var": "post_type_key",
+    "can_export": true,
+    "delete_with_user": false,
+    "labels": {
+        "name": "Recent Work",
+        "singular_name": "Work Item",
+        "menu_name": "Recent Work",
+        "all_items": "All Work Items",
+        "add_new": "Add New",
+        "add_new_item": "Add New Work Item",
+        "edit_item": "Edit Work Item",
+        "new_item": "New Work Item",
+        "view_item": "View Work Item",
+        "view_items": "View Work Items",
+        "search_items": "Search Work Items",
+        "not_found": "No work items found",
+        "not_found_in_trash": "No work items found in Trash",
+        "archives": "Work Item Archives",
+        "attributes": "Work Item Attributes",
+        "insert_into_item": "Insert into work item",
+        "uploaded_to_this_item": "Uploaded to this work item",
+        "filter_items_list": "Filter work items list",
+        "items_list_navigation": "Work items list navigation",
+        "items_list": "Work items list",
+        "item_published": "Work item published.",
+        "item_published_privately": "Work item published privately.",
+        "item_reverted_to_draft": "Work item reverted to draft.",
+        "item_scheduled": "Work item scheduled.",
+        "item_updated": "Work item updated."
+    },
+    "modified": 1730591400
+}
+```
+
+### EXAMPLE FIELD GROUP
+
+```json
+
+{
+    "key": "group_recent_work_details",
+    "title": "Work Item Details",
+    "fields": [
+        {
+            "key": "field_category_type",
+            "label": "Category Type",
+            "name": "category_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Select the type of work (AI Chat, Voice Agent, etc.)",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "AI Chat": "AI Chat",
+                "Voice Agent": "Voice Agent",
+                "Automation": "Automation",
+                "Knowledge Base": "Knowledge Base",
+                "MVP Development": "MVP Development",
+                "Observability": "Observability"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": "Select category..."
+        },
+        {
+            "key": "field_icon_svg_path",
+            "label": "Icon SVG Path",
+            "name": "icon_svg_path",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Paste the SVG path element(s) for the icon (just the <path> tags, not the full SVG)",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "<path d=\"...\"><\/path>",
+            "new_lines": ""
+        },
+        {
+            "key": "field_metrics",
+            "label": "Metrics",
+            "name": "metrics",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Performance metric or key result (e.g., \"67% qualification rate\")",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., 67% qualification rate",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_aspect_ratio",
+            "label": "Aspect Ratio",
+            "name": "aspect_ratio",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Image aspect ratio (16:9 for landscape, 4:3 for portrait-ish)",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "16:9": "16:9 (Landscape)",
+                "4:3": "4:3 (Portrait-ish)"
+            },
+            "default_value": "16:9",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_featured_image",
+            "label": "Featured Image Filename",
+            "name": "featured_image",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Just the filename (e.g., \"f16eab49-7c29-4933-aca8-f41b2c337f6f_800w.jpg\"). Image should be in \/public\/recent-work\/ directory.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "filename.jpg",
+            "prepend": "\/public\/recent-work\/",
+            "append": ""
+        },
+        {
+            "key": "field_image_alt",
+            "label": "Image Alt Text",
+            "name": "image_alt",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Alternative text for the image (for accessibility)",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Describe the image...",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_featured",
+            "label": "Featured",
+            "name": "featured",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Mark this work item as featured",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Mark as featured work",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Featured",
+            "ui_off_text": "Not Featured"
+        },
+        {
+            "key": "field_video_url",
+            "label": "Video URL",
+            "name": "video_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Optional: Link to video demo or presentation",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https:\/\/youtube.com\/..."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "recent-work"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom fields for Recent Work and Videos items",
+    "show_in_rest": 0,
+    "modified": 1730591400
+}
+```

@@ -1,0 +1,51 @@
+{
+    "key": "taxonomy_status",
+    "title": "Status",
+    "menu_order": 0,
+    "active": true,
+    "taxonomy": "status",
+    "description": "Status taxonomy shared by projects and tasks for tracking progress",
+    "public": true,
+    "publicly_queryable": true,
+    "hierarchical": true,
+    "show_ui": true,
+    "show_in_menu": true,
+    "show_in_nav_menus": true,
+    "show_in_rest": true,
+    "rest_base": "statuses",
+    "rest_namespace": "wp/v2",
+    "rest_controller_class": "WP_REST_Terms_Controller",
+    "show_tagcloud": false,
+    "show_in_quick_edit": true,
+    "show_admin_column": true,
+    "post_types": [
+        "project",
+        "task"
+    ],
+    "rewrite": {
+        "permalink_rewrite": "taxonomy_key",
+        "with_front": "1",
+        "hierarchical": "0"
+    },
+    "query_var": "taxonomy_key",
+    "labels": {
+        "name": "Statuses",
+        "singular_name": "Status",
+        "menu_name": "Statuses",
+        "all_items": "All Statuses",
+        "edit_item": "Edit Status",
+        "view_item": "View Status",
+        "update_item": "Update Status",
+        "add_new_item": "Add New Status",
+        "new_item_name": "New Status Name",
+        "parent_item": "Parent Status",
+        "parent_item_colon": "Parent Status:",
+        "search_items": "Search Statuses",
+        "popular_items": "Popular Statuses",
+        "separate_items_with_commas": "Separate statuses with commas",
+        "add_or_remove_items": "Add or remove statuses",
+        "choose_from_most_used": "Choose from most used statuses",
+        "not_found": "No statuses found"
+    },
+    "modified": 1737936000
+}

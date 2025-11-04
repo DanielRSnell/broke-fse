@@ -1,0 +1,161 @@
+{
+    "key": "group_task_details",
+    "title": "Task Details",
+    "fields": [
+        {
+            "key": "field_task_parent_project",
+            "label": "Parent Project",
+            "name": "parent_project",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Select the project this task belongs to",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "project"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_task_assigned_to",
+            "label": "Assigned To",
+            "name": "assigned_to",
+            "aria-label": "",
+            "type": "user",
+            "instructions": "Select the user assigned to this task",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "role": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_task_priority",
+            "label": "Priority",
+            "name": "priority",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Task priority level",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "low": "Low",
+                "medium": "Medium",
+                "high": "High",
+                "urgent": "Urgent"
+            },
+            "default_value": "medium",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_task_due_date",
+            "label": "Due Date",
+            "name": "due_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Task due date",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "Y-m-d",
+            "first_day": 0
+        },
+        {
+            "key": "field_task_estimated_hours",
+            "label": "Estimated Hours",
+            "name": "estimated_hours",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Estimated time to complete (hours)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "17",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "step": 0.25,
+            "placeholder": "",
+            "prepend": "",
+            "append": "hrs"
+        },
+        {
+            "key": "field_task_actual_hours",
+            "label": "Actual Hours",
+            "name": "actual_hours",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Actual time spent (hours)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "17",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "step": 0.25,
+            "placeholder": "",
+            "prepend": "",
+            "append": "hrs"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "task"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom fields for task management",
+    "show_in_rest": 0,
+    "modified": 1737936000
+}
