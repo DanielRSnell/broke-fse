@@ -1,0 +1,204 @@
+  <section id="evals" class="max-w-7xl sm:px-6 sm:mt-20 border-t border-neutral-200 mt-16 mx-auto pt-10 px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7">
+          <h2 class="text-2xl sm:text-3xl tracking-tight">Model Evals</h2>
+          <p class="text-neutral-600 mt-2">
+            Continuous evaluation of prompts, tools, and retrieval quality
+            across production workloads.
+          </p>
+
+          <div class="mt-5 rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-neutral-900">
+                  <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+                  <path d="m19 9-5 5-4-4-3 3"></path>
+                </svg>
+                <h3 class="text-base font-semibold tracking-tight">
+                  Pass@1 by model (weekly)
+                </h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                <span class="text-xs text-neutral-500">Live data</span>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <div class="h-48">
+                <canvas id="evalChart" width="1342" height="384" style="display: block; box-sizing: border-box; height: 192px; width: 671.3px;" class=""></canvas>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-3 gap-3 text-sm">
+              <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-3">
+                <div class="text-neutral-600">Current best</div>
+                <div class="text-lg font-semibold tracking-tight">82%</div>
+                <div class="text-xs text-green-600 mt-1">+4% this week</div>
+              </div>
+              <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-3">
+                <div class="text-neutral-600">Context win</div>
+                <div class="text-lg font-semibold tracking-tight">+10% RAG</div>
+                <div class="text-xs text-neutral-500 mt-1">vs baseline</div>
+              </div>
+              <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-3">
+                <div class="text-neutral-600">Latency p95</div>
+                <div class="text-lg font-semibold tracking-tight">780ms</div>
+                <div class="text-xs text-yellow-600 mt-1">Within SLA</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl border border-neutral-200 bg-white p-4">
+              <div class="flex items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-neutral-600">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="6"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                </svg>
+                <h4 class="text-sm font-medium tracking-tight">
+                  Eval Categories
+                </h4>
+              </div>
+              <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="text-xs text-neutral-600">Code generation</span>
+                  <span class="text-xs font-medium">87%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-xs text-neutral-600">
+                    Q&amp;A retrieval
+                  </span>
+                  <span class="text-xs font-medium">82%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-xs text-neutral-600">Tool usage</span>
+                  <span class="text-xs font-medium">76%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-xs text-neutral-600">Reasoning</span>
+                  <span class="text-xs font-medium">73%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-xl border border-neutral-200 bg-white p-4">
+              <div class="flex items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-neutral-600">
+                  <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path>
+                </svg>
+                <h4 class="text-sm font-medium tracking-tight">Recent Tests</h4>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="">
+                    <div class="text-xs text-neutral-900">
+                      GPT-4o prompt optimization
+                    </div>
+                    <div class="text-[10px] text-neutral-500">2 hours ago</div>
+                  </div>
+                  <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-xs text-neutral-900">
+                      Claude-3.5 tool calling
+                    </div>
+                    <div class="text-[10px] text-neutral-500">6 hours ago</div>
+                  </div>
+                  <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="">
+                    <div class="text-xs text-neutral-900">
+                      RAG chunk size A/B test
+                    </div>
+                    <div class="text-[10px] text-neutral-500">12 hours ago</div>
+                  </div>
+                  <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 rounded-xl border border-neutral-200 bg-white p-4">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[16px] h-[16px] text-neutral-900">
+                  <path d="M9 5v4"></path>
+                  <rect width="4" height="6" x="7" y="9" rx="1"></rect>
+                  <path d="M9 15v2"></path>
+                  <path d="M17 3v2"></path>
+                  <rect width="4" height="8" x="15" y="5" rx="1"></rect>
+                  <path d="M17 13v3"></path>
+                  <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+                </svg>
+                <h4 class="text-sm font-medium tracking-tight">
+                  Evaluation Framework
+                </h4>
+              </div>
+              <span class="text-xs text-neutral-500">1,247 total tests</span>
+            </div>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Automated testing pipeline with custom metrics, human feedback
+              loops, and A/B testing. Tracks accuracy, hallucination rates, tool
+              usage effectiveness, and user satisfaction scores across different
+              model versions and prompt templates.
+            </p>
+          </div>
+        </div>
+
+        <!-- About -->
+        <div id="about" class="lg:col-span-5">
+          <div class="rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-sm">
+            <div class="relative aspect-[4/3]">
+              <img src="https://hoirqrkdgbmvpwutwuwj-all.supabase.co/storage/v1/object/public/assets/assets/e636d5f8-9fec-44fe-b4dd-4ccb5a90c3da_1600w.jpg" alt="Workspace" class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-transparent"></div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold tracking-tight">About</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600">
+                I build AI products end‑to‑end: data ingestion, retrieval,
+                prompt/tooling, evals, and production UI. Pragmatic about
+                latency, cost, and safety — with strong attention to developer
+                experience.
+              </p>
+              <div class="mt-4 grid grid-cols-3 gap-4">
+                <div>
+                  <div class="text-2xl tracking-tight">8+</div>
+                  <p class="text-[11px] text-neutral-500 mt-0.5">Years</p>
+                </div>
+                <div>
+                  <div class="text-2xl tracking-tight">120+</div>
+                  <p class="text-[11px] text-neutral-500 mt-0.5">Projects</p>
+                </div>
+                <div>
+                  <div class="text-2xl tracking-tight">50+</div>
+                  <p class="text-[11px] text-neutral-500 mt-0.5">Clients</p>
+                </div>
+              </div>
+              <div class="mt-5 p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+                <h4 class="text-sm font-medium tracking-tight text-neutral-900 mb-2">
+                  Currently learning
+                </h4>
+                <p class="text-sm text-neutral-600">
+                  Structured outputs, memory architectures, and low‑latency tool
+                  use with vLLM + GPU batching.
+                </p>
+              </div>
+              <a href="#contact" class="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium tracking-tight text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-900">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                  <path d="m11 17 2 2a1 1 0 1 0 3-3"></path>
+                  <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path>
+                  <path d="m21 3 1 11h-2"></path>
+                  <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path>
+                  <path d="M3 4h8"></path>
+                </svg>
+                <span>Let's collaborate</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
