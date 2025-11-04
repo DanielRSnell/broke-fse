@@ -691,12 +691,33 @@ add_filter('timber/context', function($context) {
 </div>
 ```
 
-**❌ Don't fetch data in templates:**
+**⚠️ Data Fetching in Templates:**
+
+While context filters are recommended for most cases, there are valid scenarios for template-based data fetching:
 
 ```html
-<!-- WRONG - Violates MVC pattern -->
-{% set posts = timber.get_posts({'posts_per_page': 5}) %}
+<!-- ✅ VALID - Self-contained reusable component with built-in data fetching -->
+<div setvariable="recent_posts" setexpression="timber.get_posts({'posts_per_page': 3})">
+  <h2>Latest Updates</h2>
+  <div loopsource="recent_posts" loopvariable="post">
+    <h3>{{ post.title }}</h3>
+  </div>
+</div>
+
+<!-- ❌ AVOID - Complex queries or page-specific data (use context filters instead) -->
+{% set posts = timber.get_posts({'posts_per_page': 5, 'category__in': [1,2,3]}) %}
 ```
+
+**When to fetch in templates:**
+- Self-contained, reusable components/patterns
+- Simple, generic queries (e.g., "latest 3 posts")
+- Components that need to work independently anywhere
+
+**When to use context filters:**
+- Page-specific data requirements
+- Complex queries with multiple conditions
+- Data needed across multiple templates
+- Performance-critical queries
 
 #### Inline Twig Expressions
 

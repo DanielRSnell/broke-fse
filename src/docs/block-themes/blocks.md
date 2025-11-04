@@ -681,12 +681,31 @@ add_filter('timber/context', function ($context) {
 ```
 
 ```html
-<!-- ❌ BAD - Fetching in template -->
-{% set related_posts = timber.get_posts({'post_type': 'post'}) %}
-<div loopsource="related_posts" loopvariable="post">
-  <h3>{{ post.title }}</h3>
+<!-- ⚠️ TEMPLATE FETCHING - Valid for self-contained components -->
+<!-- ✅ GOOD - Reusable component with built-in data -->
+<div setvariable="recent_posts" setexpression="timber.get_posts({'posts_per_page': 3})">
+  <h2>Latest Updates</h2>
+  <div loopsource="recent_posts" loopvariable="post">
+    <h3>{{ post.title }}</h3>
+  </div>
 </div>
+
+<!-- ❌ BAD - Complex page-specific queries (use context filter instead) -->
+{% set related_posts = timber.get_posts({'post_type': 'post', 'category__in': [1,2,3], 'meta_key': 'featured'}) %}
 ```
+
+**When template data fetching is valid:**
+
+- **Self-contained reusable components/patterns** - Components that need to work independently anywhere on the site
+- **Simple, generic queries** - e.g., "latest 3 posts", "recent comments"
+- **Component encapsulation** - When the component owns its data requirements
+
+**When to use context filters instead:**
+
+- **Page-specific data** - Data that depends on the current page/post context
+- **Complex queries** - Queries with multiple conditions, joins, or custom SQL
+- **Performance-critical** - Data needed across multiple templates or sections
+- **Shared data** - Data used by multiple components on the same page
 
 **When to use template helpers:**
 
@@ -1120,15 +1139,16 @@ add_filter('timber/context', function ($context) {
 
 ---
 
-## Helper Functions (Emergency Use Only)
+## Helper Functions (Use with Discretion)
 
-**⚠️ IMPORTANT:** These helpers are available but should be considered **a last resort** for quick editor changes only. They violate MVC principles and make templates harder to maintain.
+**⚠️ IMPORTANT:** These helpers provide flexibility but should be used thoughtfully. Understand when each approach is appropriate.
 
-**The Proper Approach:**
+**Recommended Approaches (in order of preference):**
 
-1. **Context Filters** - Add data via `timber/context` filter in PHP
+1. **Context Filters** - For page-specific data, complex queries, and shared data across templates
 2. **Timber Objects** - Access data via Timber Post/Term methods like `{{ post.meta('field_name') }}`
-3. **Only use helpers** - When making emergency edits directly in the block editor
+3. **Template Helpers** - For self-contained reusable components, simple generic queries, and dynamic conditions
+4. **Emergency Fixes** - Quick editor changes when proper approach isn't immediately feasible
 
 Universal Block provides two helper objects for accessing PHP and Timber functions from Twig:
 
@@ -1200,31 +1220,39 @@ add_filter('timber/context', function($context) {
 
 The `timber` object provides direct access to Timber static methods.
 
-**⚠️ WARNING:** Same as `fun`, this should NOT be used for data fetching. Use context filters instead.
+**⚠️ CONTEXT MATTERS:** This helper can be used for self-contained components, but context filters are preferred for page-specific data.
 
 **Syntax:** `{{ timber.method_name(args) }}`
 
-**Examples (for emergency use only):**
+**Examples - Valid Use Cases:**
 
 ```twig
-{# ❌ DON'T DO THIS - Use context filter #}
-{% set posts = timber.get_posts({'post_type': 'post', 'posts_per_page': 5}) %}
-{% set menu = timber.get_menu('primary') %}
-{% set categories = timber.get_terms('category') %}
+{# ✅ VALID - Self-contained reusable component #}
+<div setvariable="latest_posts" setexpression="timber.get_posts({'posts_per_page': 3})">
+  <h3>Latest Updates</h3>
+  <div loopsource="latest_posts" loopvariable="post">
+    <span>{{ post.title }}</span>
+  </div>
+</div>
+
+{# ❌ AVOID - Complex page-specific queries (use context filter) #}
+{% set posts = timber.get_posts({'category__in': [1,2,3], 'meta_key': 'featured'}) %}
+{% set menu = timber.get_menu('primary') %}  {# Better in context filter #}
+{% set categories = timber.get_terms('category') %}  {# Better in context filter #}
 ```
 
-**Proper Alternatives:**
+**Comparison:**
 
-❌ **WRONG - Fetching posts in template:**
+❌ **AVOID - Complex queries or page-specific data:**
 
 ```twig
-{% set posts = timber.get_posts({'post_type': 'post', 'posts_per_page': 5}) %}
+{% set posts = timber.get_posts({'post_type': 'post', 'posts_per_page': 5, 'category__in': [1,2,3]}) %}
 <div loopsource="posts" loopvariable="post">
   <h3>{{ post.title }}</h3>
 </div>
 ```
 
-✅ **RIGHT - Using context filter:**
+✅ **PREFERRED - Context filter for complex/page-specific data:**
 
 ```php
 // In functions.php or src/context/recent-posts.php
@@ -1244,13 +1272,21 @@ add_filter('timber/context', function($context) {
 </div>
 ```
 
-**Why Context Filters Are Better:**
+**When to use each approach:**
 
-- ✅ Follows MVC pattern (logic in PHP, presentation in templates)
-- ✅ Better performance (data fetched once, cached by Timber)
-- ✅ Easier to test and maintain
-- ✅ Cleaner, more readable templates
-- ✅ Data available across all templates automatically
+**Context Filters (Preferred for):**
+- ✅ Page-specific data requirements
+- ✅ Complex queries with multiple conditions
+- ✅ Data needed across multiple templates/sections
+- ✅ Performance-critical queries (cached by Timber)
+- ✅ Shared data between components
+
+**Template Helpers (Valid for):**
+- ✅ Self-contained reusable components/patterns
+- ✅ Simple, generic queries ("latest 3 posts")
+- ✅ Components that work independently anywhere
+- ✅ Data encapsulated within a single component
+- ✅ Quick prototyping or emergency fixes
 
 ### When to Use `timber.get_image()` - The Exception to the Rule
 
@@ -1440,23 +1476,37 @@ When generating Universal Block markup:
 
 2. **Data Fetching Strategy (CRITICAL - READ THIS FIRST!):**
 
-   **NEVER suggest using `fun` or `timber` helpers for data fetching!**
+   **Context filters are PREFERRED, but template helpers have valid use cases.**
 
-   ✅ **DO THIS:**
-   - Use `timber/context` filter in PHP for ALL data fetching
+   ✅ **PREFERRED - Use context filters for:**
+   - Page-specific data requirements
+   - Complex queries with multiple conditions
+   - Data needed across multiple templates
+   - Performance-critical queries
    - Use Timber Post methods: `{{ post.meta('field_name') }}` for custom fields
    - Use Timber object properties: `{{ post.categories }}`, `{{ post.thumbnail }}`
 
-   ❌ **NEVER DO THIS:**
-   - `{{ fun.get_field('field_name') }}` - WRONG!
-   - `{{ fun.get_post_meta(post.ID, 'key') }}` - WRONG!
-   - `{% set posts = timber.get_posts() %}` - WRONG!
+   ✅ **VALID - Use template helpers for:**
+   - Self-contained reusable components/patterns
+   - Simple generic queries: `timber.get_posts({'posts_per_page': 3})`
+   - Components that work independently anywhere
+   - Data encapsulated within a single component
 
-   **Why:**
-   - Violates MVC pattern (logic should be in PHP, not templates)
-   - Worse performance (no caching, redundant queries)
-   - Harder to test and maintain
-   - Makes templates complex and fragile
+   ❌ **NEVER DO THIS:**
+   - `{{ fun.get_field('field_name') }}` - Use `{{ post.meta('field_name') }}` instead!
+   - `{{ fun.get_post_meta(post.ID, 'key') }}` - Use `{{ post.meta('key') }}` instead!
+   - Complex queries in templates when they're page-specific
+
+   **Why context filters are preferred:**
+   - Better for MVC pattern (logic in PHP, presentation in templates)
+   - Better performance (cached by Timber, no redundant queries)
+   - Easier to test and maintain
+   - Cleaner templates
+
+   **Why template helpers can be valid:**
+   - Component encapsulation (component owns its data)
+   - Reusability (works anywhere without setup)
+   - Simplicity (no context filter needed for simple cases)
 
 3. **Choose the right approach:**
    - Use **custom elements** for WordPress parts/patterns/content
