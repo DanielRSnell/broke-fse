@@ -1,0 +1,7 @@
+# Tasks Content Collection
+
+This directory contains markdown files for task posts that sync bidirectionally with WordPress.
+
+Each file represents a task post with YAML frontmatter containing all ACF fields.
+
+Example: design-mockups.md

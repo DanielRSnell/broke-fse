@@ -1,0 +1,7 @@
+# Companies Content Collection
+
+This directory contains markdown files for company posts that sync bidirectionally with WordPress.
+
+Each file represents a company post with YAML frontmatter containing all ACF fields.
+
+Example: acme-corp.md

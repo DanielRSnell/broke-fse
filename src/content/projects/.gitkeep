@@ -1,0 +1,7 @@
+# Projects Content Collection
+
+This directory contains markdown files for project posts that sync bidirectionally with WordPress.
+
+Each file represents a project post with YAML frontmatter containing all ACF fields.
+
+Example: website-redesign.md
