@@ -2,6 +2,8 @@
 
 > A modern WordPress block theme boilerplate built with Tailwind CSS v4, Universal Block, and Timber.
 
+![Broke FSE Theme](screenshot.png)
+
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-8.0%2B-purple.svg)](https://php.net/)
 [![License](https://img.shields.io/badge/License-GPL--2.0--or--later-green.svg)](LICENSE)
