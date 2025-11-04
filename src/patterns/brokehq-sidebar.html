@@ -1,0 +1,128 @@
+<!-- BrokeHQ Sidebar Navigation -->
+<aside id="sidebar" class="w-[280px] lg:w-[300px] shrink-0 border-r border-neutral-200 bg-white/80 backdrop-blur hidden md:flex flex-col">
+  <!-- Brand / New Task Button -->
+  <div class="px-4 pt-4 pb-3 border-b border-neutral-200">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600"></div>
+        <span class="font-geist text-lg font-medium tracking-tight">BrokeHQ</span>
+      </div>
+      <button class="md:hidden p-2 rounded-lg hover:bg-neutral-100" id="closeSidebarBtn" aria-label="Close">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <button class="mt-4 w-full inline-flex items-center justify-center gap-2 h-10 rounded-lg text-white shadow-[0_10px_20px_rgba(16,185,129,.25)] hover:shadow-[0_12px_24px_rgba(16,185,129,.28)] transition-shadow" style="background-image:linear-gradient(135deg,#10b981,#059669);">
+      <i data-lucide="plus" class="w-4 h-4"></i>
+      <span class="text-sm">New task</span>
+    </button>
+
+    <div class="mt-3 flex items-center gap-2 h-10 px-3 rounded-lg bg-neutral-100 border border-neutral-200">
+      <i data-lucide="search" class="w-4 h-4 text-neutral-500"></i>
+      <input type="text" placeholder="Search" class="flex-1 bg-transparent text-sm outline-none placeholder:text-neutral-500">
+      <kbd class="text-[10px] text-neutral-500">⌘K</kbd>
+    </div>
+  </div>
+
+  <!-- Primary Navigation -->
+  <nav class="px-3 py-3 text-sm">
+    <ul class="space-y-1">
+      <li>
+        <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-neutral-100 text-neutral-700">
+          <i data-lucide="inbox" class="w-4 h-4"></i>
+          Inbox
+          <span class="ml-auto text-[11px] rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 px-2 py-0.5">{{ inbox_count }}</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-neutral-100 text-neutral-700">
+          <i data-lucide="user" class="w-4 h-4"></i>
+          My tasks
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-neutral-100 text-neutral-700">
+          <i data-lucide="layout-list" class="w-4 h-4"></i>
+          Views
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-neutral-100 text-neutral-700">
+          <i data-lucide="map" class="w-4 h-4"></i>
+          Roadmaps
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-neutral-100 text-neutral-700">
+          <i data-lucide="building" class="w-4 h-4"></i>
+          Companies
+        </a>
+      </li>
+    </ul>
+
+    <div class="mt-5 px-3 text-[11px] uppercase tracking-wide text-neutral-500">Your Companies</div>
+
+    <!-- Company Sections -->
+    <div class="mt-2 space-y-1" conditionalvisibility="true" conditionalexpression="user.ID > 0">
+      <!-- Example Company Section (will be dynamic via context filter) -->
+      <div loopsource="user_companies" loopvariable="company">
+        <details class="group" open>
+          <summary class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-neutral-100 cursor-pointer list-none">
+            <i data-lucide="box" class="w-4 h-4 text-emerald-600"></i>
+            <span class="text-sm">{{ company.title }}</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 ml-auto transition-transform group-open:rotate-180"></i>
+          </summary>
+          <ul class="mt-1 pl-9 pr-3 space-y-1">
+            <li>
+              <a href="#" class="flex items-center justify-between px-2 py-1.5 rounded-md hover:bg-neutral-100 text-sm">
+                <span class="flex items-center gap-2">
+                  <i data-lucide="stethoscope" class="w-4 h-4"></i>Triage
+                </span>
+                <span class="text-[11px] rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 px-2 py-0.5">{{ company.triage_count }}</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-neutral-100 text-sm">
+                <i data-lucide="list-todo" class="w-4 h-4"></i>All Tasks
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-neutral-100 text-sm">
+                <i data-lucide="activity" class="w-4 h-4"></i>Active Projects
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-neutral-100 text-sm">
+                <i data-lucide="archive" class="w-4 h-4"></i>Backlog
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-neutral-100 text-sm">
+                <i data-lucide="folder-kanban" class="w-4 h-4"></i>Projects
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-neutral-100 text-sm">
+                <i data-lucide="grid" class="w-4 h-4"></i>Views
+              </a>
+            </li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </nav>
+
+  <!-- User Profile Footer -->
+  <div class="mt-auto px-4 py-4 border-t border-neutral-200" conditionalvisibility="true" conditionalexpression="user.ID > 0">
+    <div class="flex items-center gap-3">
+      <img src="{{ user.avatar }}" alt="{{ user.display_name }}" class="h-8 w-8 rounded-full object-cover">
+      <div>
+        <div class="text-sm font-medium">{{ user.display_name }}</div>
+        <div class="text-xs text-neutral-600">{{ user_job_title }}</div>
+      </div>
+      <button class="ml-auto p-2 rounded-md hover:bg-neutral-100">
+        <i data-lucide="settings" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+</aside>

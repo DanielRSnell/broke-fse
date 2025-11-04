@@ -1,0 +1,36 @@
+<!-- BrokeHQ Topbar -->
+<header class="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-neutral-200">
+  <div class="px-3 md:px-6 h-14 flex items-center gap-3">
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden p-2 rounded-lg hover:bg-neutral-100" id="openSidebarBtn" aria-label="Open sidebar">
+      <i data-lucide="panel-left" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-sm">
+      <a href="{{ company.link }}" class="text-neutral-700 hover:text-neutral-900">{{ company.title }}</a>
+      <i data-lucide="chevron-right" class="w-4 h-4 text-neutral-400"></i>
+      <span class="text-neutral-900">{{ project.title }}</span>
+    </nav>
+
+    <!-- Actions -->
+    <div class="ml-auto flex items-center gap-2">
+      <button class="hidden sm:inline-flex items-center gap-2 h-9 px-3 rounded-md bg-white border border-neutral-200 hover:bg-neutral-50 transition-colors">
+        <i data-lucide="list-filter" class="w-4 h-4"></i>
+        <span class="text-sm">Filter</span>
+      </button>
+      <button class="hidden sm:inline-flex items-center gap-2 h-9 px-3 rounded-md bg-white border border-neutral-200 hover:bg-neutral-50 transition-colors">
+        <i data-lucide="layout-grid" class="w-4 h-4"></i>
+        <span class="text-sm">Display</span>
+      </button>
+      <button class="inline-flex items-center gap-2 h-9 px-3 rounded-md bg-white border border-neutral-200 hover:bg-neutral-50 transition-colors">
+        <i data-lucide="bell" class="w-4 h-4"></i>
+        <span class="hidden sm:inline text-sm">Notifications</span>
+      </button>
+      <button class="inline-flex items-center gap-2 h-9 px-3 rounded-md bg-neutral-900 text-white hover:bg-neutral-800 transition-colors">
+        <i data-lucide="circle" class="w-4 h-4"></i>
+        <span class="hidden sm:inline text-sm">Focus</span>
+      </button>
+    </div>
+  </div>
+</header>
