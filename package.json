@@ -1,5 +1,8 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "lucide": "^0.552.0"
+  },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.14",
     "@tailwindcss/typography": "^0.5.19",

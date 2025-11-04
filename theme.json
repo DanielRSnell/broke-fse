@@ -13,22 +13,37 @@
 					"slug": "system-serif",
 					"fontFamily": "Georgia, Cambria, 'Times New Roman', Times, serif",
 					"name": "System Serif"
+				},
+				{
+					"slug": "inter",
+					"fontFamily": "'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif",
+					"name": "Inter"
+				},
+				{
+					"slug": "geist",
+					"fontFamily": "'Geist', system-ui, -apple-system, 'Segoe UI', 'Inter', sans-serif",
+					"name": "Geist"
 				}
 			],
 			"fontSizes": [
 				{
+					"slug": "xxs",
+					"size": "0.625rem",
+					"name": "Extra Extra Small"
+				},
+				{
 					"slug": "xs",
-					"size": "0.75rem",
+					"size": "0.6875rem",
 					"name": "Extra Small"
 				},
 				{
 					"slug": "sm",
-					"size": "0.875rem",
+					"size": "0.75rem",
 					"name": "Small"
 				},
 				{
 					"slug": "base",
-					"size": "1rem",
+					"size": "0.875rem",
 					"name": "Base"
 				},
 				{
@@ -233,6 +248,116 @@
 					"slug": "btn-primary-bg-hover",
 					"color": "oklch(0.24 0 0)",
 					"name": "Button Primary Background Hover"
+				},
+				{
+					"slug": "emerald-50",
+					"color": "oklch(0.985 0.03 166)",
+					"name": "Emerald 50"
+				},
+				{
+					"slug": "emerald-100",
+					"color": "oklch(0.96 0.06 166)",
+					"name": "Emerald 100"
+				},
+				{
+					"slug": "emerald-500",
+					"color": "oklch(0.71 0.15 166)",
+					"name": "Emerald 500"
+				},
+				{
+					"slug": "emerald-600",
+					"color": "oklch(0.61 0.15 166)",
+					"name": "Emerald 600"
+				},
+				{
+					"slug": "neutral-50",
+					"color": "oklch(0.99 0 0)",
+					"name": "Neutral 50"
+				},
+				{
+					"slug": "neutral-100",
+					"color": "oklch(0.97 0 0)",
+					"name": "Neutral 100"
+				},
+				{
+					"slug": "neutral-200",
+					"color": "oklch(0.91 0 0)",
+					"name": "Neutral 200"
+				},
+				{
+					"slug": "neutral-400",
+					"color": "oklch(0.69 0 0)",
+					"name": "Neutral 400"
+				},
+				{
+					"slug": "neutral-500",
+					"color": "oklch(0.53 0 0)",
+					"name": "Neutral 500"
+				},
+				{
+					"slug": "neutral-600",
+					"color": "oklch(0.42 0 0)",
+					"name": "Neutral 600"
+				},
+				{
+					"slug": "neutral-700",
+					"color": "oklch(0.33 0 0)",
+					"name": "Neutral 700"
+				},
+				{
+					"slug": "neutral-900",
+					"color": "oklch(0.19 0 0)",
+					"name": "Neutral 900"
+				},
+				{
+					"slug": "amber-50",
+					"color": "oklch(0.985 0.03 85)",
+					"name": "Amber 50"
+				},
+				{
+					"slug": "amber-100",
+					"color": "oklch(0.96 0.06 85)",
+					"name": "Amber 100"
+				},
+				{
+					"slug": "amber-400",
+					"color": "oklch(0.80 0.13 85)",
+					"name": "Amber 400"
+				},
+				{
+					"slug": "amber-500",
+					"color": "oklch(0.75 0.15 70)",
+					"name": "Amber 500"
+				},
+				{
+					"slug": "amber-700",
+					"color": "oklch(0.55 0.12 70)",
+					"name": "Amber 700"
+				},
+				{
+					"slug": "yellow-100",
+					"color": "oklch(0.97 0.06 95)",
+					"name": "Yellow 100"
+				},
+				{
+					"slug": "yellow-400",
+					"color": "oklch(0.85 0.14 95)",
+					"name": "Yellow 400"
+				},
+				{
+					"slug": "indigo-100",
+					"color": "oklch(0.93 0.04 272)",
+					"name": "Indigo 100"
+				},
+				{
+					"slug": "indigo-500",
+					"color": "oklch(0.57 0.18 272)",
+					"name": "Indigo 500"
+				},
+				{
+					"slug": "indigo-600",
+					"color": "oklch(0.51 0.20 272)",
+					"name": "Indigo 600"
 				}
 			]
 		},

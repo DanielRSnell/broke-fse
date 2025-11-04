@@ -45,6 +45,50 @@
   --color-btn-primary-text-hover: var(--wp--preset--color--btn-primary-text-hover);
   --color-btn-primary-bg-hover: var(--wp--preset--color--btn-primary-bg-hover);
 
+  /* Emerald palette - Wrap theme.json */
+  --color-emerald-50: var(--wp--preset--color--emerald-50);
+  --color-emerald-100: var(--wp--preset--color--emerald-100);
+  --color-emerald-500: var(--wp--preset--color--emerald-500);
+  --color-emerald-600: var(--wp--preset--color--emerald-600);
+
+  /* Neutral palette - Wrap theme.json */
+  --color-neutral-50: var(--wp--preset--color--neutral-50);
+  --color-neutral-100: var(--wp--preset--color--neutral-100);
+  --color-neutral-200: var(--wp--preset--color--neutral-200);
+  --color-neutral-400: var(--wp--preset--color--neutral-400);
+  --color-neutral-500: var(--wp--preset--color--neutral-500);
+  --color-neutral-600: var(--wp--preset--color--neutral-600);
+  --color-neutral-700: var(--wp--preset--color--neutral-700);
+  --color-neutral-900: var(--wp--preset--color--neutral-900);
+
+  /* Status colors - Wrap theme.json */
+  --color-amber-50: var(--wp--preset--color--amber-50);
+  --color-amber-100: var(--wp--preset--color--amber-100);
+  --color-amber-400: var(--wp--preset--color--amber-400);
+  --color-amber-500: var(--wp--preset--color--amber-500);
+  --color-amber-700: var(--wp--preset--color--amber-700);
+
+  --color-yellow-100: var(--wp--preset--color--yellow-100);
+  --color-yellow-400: var(--wp--preset--color--yellow-400);
+
+  --color-indigo-100: var(--wp--preset--color--indigo-100);
+  --color-indigo-500: var(--wp--preset--color--indigo-500);
+  --color-indigo-600: var(--wp--preset--color--indigo-600);
+
+  /* Semantic aliases for BrokeHQ */
+  --color-brand-primary: var(--color-emerald-500);
+  --color-brand-gradient-start: var(--color-emerald-500);
+  --color-brand-gradient-end: var(--color-emerald-600);
+
+  --color-bg-body: var(--color-neutral-50);
+  --color-bg-card: var(--wp--preset--color--white);
+  --color-border-default: var(--color-neutral-200);
+
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-tertiary: var(--color-neutral-600);
+  --color-text-placeholder: var(--color-neutral-500);
+
   /* Content width constraints - Reference WordPress spacing presets */
   --size-content-1: var(--wp--preset--spacing--content-1);
   --size-content-2: var(--wp--preset--spacing--content-2);

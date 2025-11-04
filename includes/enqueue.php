@@ -81,3 +81,17 @@ function blank_theme_enqueue_editor_assets() {
     }
 }
 add_action('enqueue_block_editor_assets', 'blank_theme_enqueue_editor_assets');
+
+/**
+ * Enqueue Google Fonts for BrokeHQ
+ */
+function blank_theme_enqueue_google_fonts() {
+    wp_enqueue_style(
+        'google-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&display=swap',
+        array(),
+        null
+    );
+}
+add_action('wp_enqueue_scripts', 'blank_theme_enqueue_google_fonts');
+add_action('admin_enqueue_scripts', 'blank_theme_enqueue_google_fonts');
