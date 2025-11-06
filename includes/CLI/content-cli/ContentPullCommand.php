@@ -381,19 +381,37 @@ class ContentPullCommand {
         WP_CLI::debug("Saved blocks JSON to /tmp/broke-cli-blocks.json (" . count($blocks) . " blocks)", 'content-pull');
 
         // Run Node.js parser (uses JSDOM to execute client-blocks2html.js)
-        $command = "node " . escapeshellarg($script_path) . " " . escapeshellarg($temp_file) . " 2>&1";
-        $output = shell_exec($command);
+        $descriptorspec = [
+            0 => ['pipe', 'r'], // stdin
+            1 => ['pipe', 'w'], // stdout
+            2 => ['pipe', 'w'], // stderr
+        ];
 
-        // Clean up temp file
-        unlink($temp_file);
+        $process = proc_open(
+            "node " . escapeshellarg($script_path) . " " . escapeshellarg($temp_file),
+            $descriptorspec,
+            $pipes
+        );
 
-        if ($output === null || empty($output)) {
-            WP_CLI::error("Failed to convert blocks to HTML using server-blocks2html.js parser");
-        }
+        if (is_resource($process)) {
+            $output = stream_get_contents($pipes[1]);
+            $error = stream_get_contents($pipes[2]);
+            fclose($pipes[1]);
+            fclose($pipes[2]);
+            $return_code = proc_close($process);
 
-        // Check for errors in output
-        if (strpos($output, 'Error processing blocks:') !== false) {
-            WP_CLI::error("Parser error: " . $output);
+            // Clean up temp file
+            unlink($temp_file);
+
+            // Check for actual parser errors (non-zero exit code or stderr output)
+            if ($return_code !== 0 || !empty($error)) {
+                WP_CLI::error("Parser error: " . $error);
+            }
+
+            // Allow empty output - it's valid when posts have no convertible content
+        } else {
+            unlink($temp_file);
+            WP_CLI::error("Failed to start Node.js parser");
         }
 
         // Debug: Save HTML for inspection
