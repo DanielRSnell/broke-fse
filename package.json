@@ -31,7 +31,7 @@
     "parts:pull": "THEME=$(basename $(pwd)) && cd ../../.. && wp blocks:html parts --all && cd wp-content/themes/$THEME",
     "parts:push": "THEME=$(basename $(pwd)) && cd ../../.. && wp html:blocks src/parts --all && cd wp-content/themes/$THEME",
     "pattern:extract": "wp pattern extract $FILE",
-    "patterns:push": "cd ../../.. && wp pattern push --all",
+    "patterns:push": "THEME=$(basename $(pwd)) && cd ../../.. && wp html:blocks src/patterns --all && cd wp-content/themes/$THEME && for file in patterns/*.html; do name=$(basename \"$file\" .html); title=$(echo \"$name\" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1'); { echo '<?php'; echo '/**'; echo \" * Title: ${title}\"; echo \" * Slug: broke-fse/${name}\"; echo ' * Description: Reusable pattern section'; echo ' * Categories: patterns'; echo ' * Viewport Width: 1280'; echo ' * Inserter: true'; echo ' */'; echo '?>'; cat \"$file\"; } > \"patterns/${name}.php\"; echo \"✓ Created patterns/${name}.php\"; done",
     "content:pull": "cd ../../.. && wp content pull --all",
     "content:push": "cd ../../.. && wp content push --all",
     "page:pull": "THEME=$(basename $(pwd)) && cd ../../.. && wp page pull --all && cd wp-content/themes/$THEME && npx prettier --write \"src/content/pages/**/*.html\"",
