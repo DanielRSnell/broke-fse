@@ -54,7 +54,7 @@ class PatternPushCommand extends WP_CLI_Command {
     public function __invoke($args, $assoc_args) {
         $theme_dir = get_template_directory();
         $theme_slug = basename($theme_dir);
-        $patterns_dir = $theme_dir . '/src/patterns';
+        $patterns_dir = $theme_dir . '/patterns'; // Changed from '/src/patterns' to '/patterns'
 
         // Check if converting all patterns
         $convert_all = isset($assoc_args['all']);
@@ -69,7 +69,7 @@ class PatternPushCommand extends WP_CLI_Command {
         $files = [];
         if ($convert_all) {
             if (!is_dir($patterns_dir)) {
-                WP_CLI::error("Patterns directory not found: {$patterns_dir}");
+                WP_CLI::error("Patterns directory not found: {$patterns_dir}. Run 'wp html:blocks src/patterns --all' first to convert HTML to block markup.");
                 return;
             }
             $files = glob($patterns_dir . '/*.html');
@@ -83,7 +83,7 @@ class PatternPushCommand extends WP_CLI_Command {
         }
 
         if (empty($files)) {
-            WP_CLI::warning("No HTML pattern files found in {$patterns_dir}");
+            WP_CLI::warning("No HTML pattern files found in {$patterns_dir}. Run 'wp html:blocks src/patterns --all' first to convert HTML to block markup.");
             return;
         }
 
